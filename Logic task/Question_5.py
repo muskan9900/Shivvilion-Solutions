@@ -17,7 +17,7 @@ def temperature_days(temperatures):
 
         while indices_temp and temperatures[i] > temperatures[indices_temp[-1]]:
             # Calculate days to wait and store in result     
-                indices_temp.append(i)  # Push the current index onto the stack
+                indices_temp.append(i)  
 
     return result
 
