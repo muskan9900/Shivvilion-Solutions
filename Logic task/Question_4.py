@@ -18,7 +18,7 @@ fibonaaci_numbers=[]
 # starting the loop 
 for i in range(n):
     if i<=n:    #tatisfies the condition 
-        fibonaaci_numbers.append(str(a))# this appends the the variable a values to the list 
+        fibonaaci_numbers.append(int(a))# this appends the the variable a values to the list 
         # the formula for fibonacci series 
         a,b=b ,b+a
 print((fibonaaci_numbers))
