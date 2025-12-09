@@ -1,6 +1,6 @@
-def find_second_largest_unique(numbers):
-    # to check the length of the numbers 
-    if len(numbers) < 2:
+def find_second_largest_unique(list1):
+    # to check the length of the given list1
+    if len(list1) < 2:
         return None
     
     # iniialize first_max and second_max to negative infinity
@@ -8,7 +8,7 @@ def find_second_largest_unique(numbers):
     
     first_max= second_max=float("-inf")
 
-    for num in numbers:
+    for num in list1:
         if num> first_max:
             second_max= first_max
             first_max=num
