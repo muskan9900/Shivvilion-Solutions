@@ -13,7 +13,7 @@ def find_second_largest_unique(numbers):
             second_max= first_max
             first_max=num
         elif first_max> num> second_max:
-            second_max=num # to check second_max 
+            second_max=num # to check second_max exist between 
 
     # Check if a unique second largest number was found
     if second_max == float('-inf') or second_max == first_max:
