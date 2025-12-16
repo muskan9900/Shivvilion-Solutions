@@ -33,7 +33,7 @@ for row in range(1, total_rows + 1):
 
     print("0", end=" ")   # left border
 
-    # ---------- UPPER HALF ----------
+    #  UPPER HALF
     if row <= n:
         i = row
 
@@ -53,7 +53,7 @@ for row in range(1, total_rows + 1):
             else:
                 print(" ", end=" ")
 
-    # ---------- LOWER HALF ----------
+    # LOWER HALF
     else:
         i = total_rows - row + 1
 

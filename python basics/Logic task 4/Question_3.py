@@ -12,25 +12,18 @@ Print total bill
 # time taken 25 min
 def calculate_units(units):
 
-    if (units==1 or units==100):
-        calc= units*3
-        total=calc*30 # 30 = number of days in a month
+    if units<=100:
+        total= units*3
 
-        return total
-       
-    elif( units==100 or units==200):
-        calc= units*5
-        total=calc*30 # 30 = number of days in a month
+    elif units<=200:
+        total=100*3 + ((units-100)*5)
 
-        return total
-        
-    elif units>=200:
-        calc= units*7
-        total=calc*30 # 30 = number of days in a month 
-        return total
-    
     else:
-        print("units out of range")
+        total=(100*3)+ (100*5)+((units-200)*7)
+    
+    return total
+    
+    
    
 # user input
 units=float(input("enter the number of units consumed: "))
