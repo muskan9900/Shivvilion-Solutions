@@ -23,8 +23,6 @@ def calculate_units(units):
     
     return total
     
-    
-   
 # user input
 units=float(input("enter the number of units consumed: "))
 print("total number of units:",units)

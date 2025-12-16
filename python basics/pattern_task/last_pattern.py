@@ -38,20 +38,23 @@ for row in range(1, total_rows + 1):
         i = row
 
         # SECTION 1 (upper-left)
-        for j in range(1, n+1):
-            if j <= n - i + 1:
-                print(n - j + 1, end=" ")
-            else:
-                print(" ", end=" ")
+        #  left indentation
+        print("  " * (i - 1), end="")
 
-        print(" ", end=" ")  # center gap
+        for j in range(1, n + 1):
+                if j <= n - i + 1:
+                    print(n - i - j + 2, end=" ")
+                else:
+                    print(" ", end=" ")
+
+        print(" ", end=" ")   # center gap
 
         # SECTION 2 (upper-right)
         for j in range(1, n + 1):
-            if j >= n - i + 1:
-                print(i - (j - (n - i + 1)), end=" ")
-            else:
-                print(" ", end=" ")
+                if j >= n - i + 1:
+                    print(i - (j - (n - i + 1)), end=" ")
+                else:
+                    print(" ", end=" ")
 
     # LOWER HALF
     else:
@@ -73,7 +76,7 @@ for row in range(1, total_rows + 1):
             else:
                 print(" ", end=" ")
 
-    print("0")   # right border
+    print("0")  # right border
 
 # BOTTOM ZERO BORDER
 print("0 " * (2*n + 3))
