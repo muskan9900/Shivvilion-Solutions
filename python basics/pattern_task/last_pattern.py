@@ -5,52 +5,125 @@
     3. lower half increasing 123456
     4. left and right mirroring 
 """
+""" Border of zeros
 
-n= 6
+Upper half (i ≤ n)
 
-for i in range(2*n+1):  # for rows
-    for j in range(2*n+1): # for column
+Left → Section-1 (decreasing)
 
-        # step 1
-        # for border of zero 
-        #  taking i==0 as firs row (top border)
-        # i=2*n last row(bottom)
-        # j==0 fist column (left border)
-        # j=2*n last column (right border)
+Right → Section-2 (decreasing, mirrored)
 
-        if i==0 or j==0 or i==2*n or j==2*n:
-            print(0, end=" ")
+Lower half (i > n)
 
-        
-        # step 2 upper half 
-        else:
-            #  for upper i as rows less than = n
-            if i <=n: 
-                
-                # left traingle decreasing value 
-                if j<=i:
-                    print(n-j+1, end=" ")
+Left → Section-3 (increasing)
 
-                    # right triangle increasing value 
-                elif j>=2*n-i:
-                    print(j-n,end=" ")
+Right → Section-4 (increasing """
 
-                #  middle empty space 
-                else:
-                    print(" ", end=" ")
-            
-            # step 3 lower half
+
+# section 1 not proper 
+
+n = 6
+
+total_rows = 2 * n
+
+# TOP ZERO BORDER
+print("0 " * (2*n + 3))
+
+for row in range(1, total_rows + 1):
+
+    print("0", end=" ")   # left border
+
+    # ---------- UPPER HALF ----------
+    if row <= n:
+        i = row
+
+        # SECTION 1 (upper-left)
+        for j in range(1, n+1):
+            if j <= n - i + 1:
+                print(n - j + 1, end=" ")
             else:
-                #  left trangle deacreasing value 
-                if j<=2*n-i:
-                    print(n-j+1, end=" ")
-                #  right triangle 
-                elif j>=i:
-                    print(j-n, end=" ")
-                else:
-                    print(" ", end=" ")
-            
-    print()
-       
+                print(" ", end=" ")
 
-  
+        print(" ", end=" ")  # center gap
+
+        # SECTION 2 (upper-right)
+        for j in range(1, n + 1):
+            if j >= n - i + 1:
+                print(i - (j - (n - i + 1)), end=" ")
+            else:
+                print(" ", end=" ")
+
+    # ---------- LOWER HALF ----------
+    else:
+        i = total_rows - row + 1
+
+        # SECTION 3 (lower-left)
+        for j in range(1, n + 1):
+            if j <= i:
+                print(j, end=" ")
+            else:
+                print(" ", end=" ")
+
+        print(" ", end=" ")   # center gap
+
+        # SECTION 4 (lower-right)
+        for j in range(1, n + 1):
+            if j <= n - i + 1:
+                print(j, end=" ")
+            else:
+                print(" ", end=" ")
+
+    print("0")   # right border
+
+# BOTTOM ZERO BORDER
+print("0 " * (2*n + 3))
+
+
+
+#  section 4
+# n = 6
+
+# for i in range(1, n + 1):      # rows
+#     for j in range(1, i + 1):  # values
+#         print(j, end=" ")
+#     print()
+
+
+# section 3
+# n = 6
+
+# for i in range(n, 0, -1):      # rows: 6 → 1
+#     for j in range(1, i+1):    # values: 1 → i
+#         print(j, end=" ")
+#     print()
+
+
+# section 2
+# n = 6
+
+# for i in range(1, n+1):
+#     for j in range(1, n+1):
+
+#         if j >= n - i + 1:
+#             print(i - (j - (n - i + 1)), end=" ")
+#         else:
+#             print(" ", end=" ")
+
+#     print()
+
+
+# section 1
+# n = 6
+
+# for i in range(1, n+1):        # rows
+#     for j in range(1, n+1):    # columns
+
+#         if j <= n - i + 1:
+#             print(n - i-j + 2, end=" ")
+#         else:
+#             print(" ", end=" ")
+    
+    
+
+#     print() 
+
