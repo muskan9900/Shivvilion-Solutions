@@ -2,6 +2,8 @@
 
 """ constructor  """
 
+#  time 15 min
+
 class A:
 
     # # defualt constructor
