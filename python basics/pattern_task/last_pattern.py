@@ -19,33 +19,44 @@ Left → Section-3 (increasing)
 
 Right → Section-4 (increasing """
 
-
-# section 1 not proper 
-
 n = 6
 
 total_rows = 2 * n
 
 # TOP ZERO BORDER
 print("0 " * (2*n + 3))
+""" Total columns:
+
+left border → 1
+
+section-1 → n
+
+center gap → 1
+
+section-2 → n
+
+right border → 1
+
+Total = 2n + 3 = 15 """
 
 for row in range(1, total_rows + 1):
 
     print("0", end=" ")   # left border
 
     #  UPPER HALF
-    if row <= n:
+    if row <= n: # the first 1-6 rows 
         i = row
 
         # SECTION 1 (upper-left)
-        #  left indentation
-        print("  " * (i - 1), end="")
 
         for j in range(1, n + 1):
-                if j <= n - i + 1:
-                    print(n - i - j + 2, end=" ")
-                else:
-                    print(" ", end=" ")
+                # column indentation 
+                    if j < i:
+                        print(" ", end=" ")
+                    elif j <= n:
+                        print(n - j + 1, end=" ")
+                    else:
+                        print(" ", end=" ")
 
         print(" ", end=" ")   # center gap
 
