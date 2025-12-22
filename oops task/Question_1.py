@@ -17,69 +17,103 @@ class Employee:
 
     def __init__(self,name,emp_id,base_Salary):
      self.name=name
-     self.emp_id=int(emp_id)
+     self.emp_id=emp_id
      self.base_Salary=int(base_Salary)
-     self.total_salary= 0
-
-
+     
+    def Calculate_Salary(self):
+     #    calculates the salary for the employee
+     raise NotImplementedError("Subclasses must implement this method")
+    
+    def __str__(self):
+           return f"{self.name} ({self.emp_id})  ₹ {self.base_Salary}"
+     
 class FullTimeEmplyoee(Employee):
-   
-   def calculate_salary(self):
-        bonus = self.base_Salary * 0.10
-        self.total_salary = self.base_Salary + bonus
+     def __init__(self, name, emp_id, base_salary, bonus_rate=0.10):
+        super().__init__(name, emp_id, base_salary)
+        self.bonus_rate = bonus_rate
 
-   def display(self):
-          print(f"ID: {self.emp_id}")
-          print(f"Name: {self.name}")
-          print("Type: Full-Time")
-          print(f"Total Salary: {self.total_salary:.2f}")
-          
+     def Calculate_Salary(self):
+          #  full time employee salary: base salary * 10%
+               bonus = self.base_Salary * self.bonus_rate
+               return self.base_Salary + bonus
+               
 
 
 class ContractEmployee(Employee):
 
-     def __init__(self, name, emp_id, base_Salary, hours_Worked):
-     #     super() calls the parent class constructor
-         super().__init__(name, emp_id, base_Salary)
-         self.hours_Worked= hours_Worked
-# base_salary is consider the pay for 1 hour 
-# 1 hours= base salary
-     def calculate_Salary(self,hours_worked):
-       
-       self.total_salary= self.base_Salary*hours_worked
-
-     def display(self):
-          print(f"ID: {self.emp_id}")
-          print(f"Name: {self.name}")
-          print("Type: Contract Type")
-          print(f"Hours Worked: {self.hours_Worked}")
-          print(f"Total Salary: {self.total_salary:.2f}")
-          
+               def __init__(self, name, emp_id, base_Salary, hours_Worked):
+               #     super() calls the parent class constructor
+                    super().__init__(name, emp_id, base_Salary)
+                    self.hours_Worked= hours_Worked
+          # base_salary is consider the pay for 1 hour 
+          # 1 hours= base salary
+               def Calculate_Salary(self):
+                    return self.base_Salary*self.hours_Worked    
+               
    
-# class PayrollSystem:
+class PayrollSystem:
+     "manages employee and calculates their payroll"
 
-#     def calculate_monthly_salary(self):
+     def __init__(self):
+     # creating a list for storing employees
+          self.employees=[]
+     
+     def add_employee(self,employee):
+     # adds the employee to the list 
+      self.employees.append(employee)
+
+     def calculate_payroll(self):
+     #  calculates the monthly salary for all employees.
+#      """ This is polymorphism (OOP concept):
+     
+# If employee is a FullTimeEmployee, Python runs FullTimeEmployee.Calculate_Salary()
+
+# If employee is a ContractEmployee, Python runs ContractEmployee.Calculate_Salary() """
+          print("#"*10)  
+          print(            "MONTHLY PAYROLL REPORT"                                       )
+          for employee in self.employees:
+               salary=employee.Calculate_Salary()
+               self.display_salary_slip(employee,salary)
+          print("#"*10)   
+
+     def display_salary_slip(self,employee,salary):
+          print("#"*10)  
+          print(f"Employee ID:{employee.emp_id}")
+          print(f"Employee Name: {employee.name}")
+          print(f"Base Salary:{employee.base_Salary}")
+          if isinstance(employee,FullTimeEmplyoee):
+               print(f"Base Salary:   INR {employee.base_Salary:,.2f}")
+               print(f"Bonus (10%):   INR {employee.base_Salary * employee.bonus_rate:,.2f}")
+          elif isinstance(employee, ContractEmployee):
+               print(f"Hourly Rate:   INR {employee.base_Salary:,.2f}")
+               print(f"Hours Worked:  {employee.hours_Worked}")
+
+          print(f"Total salary: INR {salary}")
+          print("#"*10)  
+
+# creating employees and adding the list 
+
+# creating the employess
+ft_emp=FullTimeEmplyoee("Sarah","FT001",4000)
+ct_emp=ContractEmployee("Williams","CT001",5000,7)
+
+# initializing the payroll system 
+
+Payroll_system=PayrollSystem()
+
+# adding employees to the payroll
+Payroll_system.add_employee(ft_emp)
+Payroll_system.add_employee(ct_emp)
+Payroll_system.calculate_payroll()
 
 
+# oops concept used
+# 1. class objects
+# 2.encapsulation
+# 3. polymorphism
+# 4. inheritance
+# 5.method overriding
 
-# creating objects 
-t=Employee("sarah",1,3000)
-print(t.name)
-print(t.emp_id)
-print(t.base_Salary)
+  
 
-t2=FullTimeEmplyoee("john",2,45987)
-print(t2.name)
-print(t2.emp_id)
-print(t2.base_Salary)
 
-t2.calculate_Salary()
-
-# # contract salary 
-
-# t3=ContractEmployee("williams",1,8000)
-# print(t3.name)
-# print(t3.emp_id)
-# print(t3.base_Salary)
-
-# t3.calculate_Salary(6)
