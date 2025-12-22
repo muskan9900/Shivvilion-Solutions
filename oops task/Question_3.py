@@ -125,7 +125,12 @@ print( borrower)
 # returning book (we have kept issue day as 10 so free days are 7 , 3 days extra , per day 5 rupess)
 lib.retun_book(102,30)
 
+# oops concept used 
 
+# 1. Objects and Classes:
+# 2.Instantiation (Object Creation): Member("James",1)
+# 3. abstraction
+# 4. encapsulation 
 
          
 
