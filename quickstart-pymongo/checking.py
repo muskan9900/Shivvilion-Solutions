@@ -3,7 +3,7 @@
 import pymongo
 
 #  my client holds the connection
-# myclient=pymongo.MongoClient("mongodb+srv://user_1:1WAj2yu5TWxdvGpr@test1.xumyeeu.mongodb.net/")
+# myclient=pymongo.MongoClient("")
 #  my db holds the connection 
 # mydb= myclient["test"] # existing data base just to check the program
 
@@ -17,7 +17,7 @@ import pymongo
 #     print("the database exists")
 
 # similar way to check for collection
-myclient=pymongo.MongoClient("mongodb+srv://user_1:1WAj2yu5TWxdvGpr@test1.xumyeeu.mongodb.net/")
+myclient=pymongo.MongoClient("")
 
 mydb= myclient["test"] # existing data base just to check the program
 

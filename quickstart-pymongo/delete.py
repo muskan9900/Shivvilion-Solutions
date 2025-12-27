@@ -2,7 +2,7 @@
 
 import pymongo
 
-myclient=pymongo.MongoClient("mongodb+srv://user_1:1WAj2yu5TWxdvGpr@test1.xumyeeu.mongodb.net/")
+myclient=pymongo.MongoClient("")
 mydb=myclient["test"]
 mycol=mydb["first"]
 
