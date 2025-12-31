@@ -1,4 +1,4 @@
-""" creating threads with class """
+""" creating threads with Thread class """
 """ using class methods, static methods for execution of threads """
 
 from threading import Thread, current_thread
