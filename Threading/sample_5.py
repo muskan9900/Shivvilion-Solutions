@@ -21,7 +21,9 @@ class MyThread(Thread):
         print("video compression code")
 # overriding the methods from the Thread class
     def run(self):
-    # creating some variables and adding them 
+    # creating some variables and assigning values
+        a=10
+        b=40
     #  using the compression()
         self.compression()
     # using a condition for checking if suitable for kids or not
@@ -35,11 +37,15 @@ class MyThread(Thread):
             print(f"{vid} started uploading....")
             sleep(1)
             print(f"{vid} uploaded.....")
-
+        self.temp=a+b
 # creating new threads
 t1=MyThread(False)
 t1.start()
-
+# this shows error because before the run() executes ,
+# the main thread calls this line before t1 thread does 
+# to avoid this we will use sleep(10)
+sleep(10)
+print(t1.temp)
 # for main thread
 for i in range(4):
     sleep(0.5)
