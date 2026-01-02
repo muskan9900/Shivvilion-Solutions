@@ -1,15 +1,18 @@
-# this code has race condition
-# to avoid this we are using locks by lock class
-
+""" Rlocks  """
+# modified version of locks
+# allows you  to use acquire() multiple times
+ 
 from threading import *
 from time import sleep
-l=Lock()
+
+l=RLock()
 class Bus:
     def __init__(self,name,available_seats,lock):
         self.available_seats=available_seats
         self.name=name
         self.lock=lock
     def reserve(self,need_seats):
+        self.lock.acquire()
         self.lock.acquire()
         print("Available seats are:",self.available_seats)
         if self.available_seats>=need_seats:
@@ -19,6 +22,7 @@ class Bus:
             self.available_seats-=need_seats
         else:
             print("no seats are available")
+        self.lock.release()
         self.lock.release()
 
 B1=Bus("Mahalakshmi travels",2,l)

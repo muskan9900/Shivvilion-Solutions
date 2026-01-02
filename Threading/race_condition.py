@@ -21,7 +21,7 @@ class Bus:
 
 B1=Bus("Mahalakshmi travels",2)
 t1=Thread(target=B1.reserve,args=(1,), name="Jay")
-t2=Thread(target=B1.reserve,args=(2,),name="Raj")
+t2=Thread(target=B1.reserve,args=(1,),name="Raj")
 t1.start()
 t2.start()
 #---- to avoid race conditiond-----#
