@@ -1,0 +1,5 @@
+DEBUG:root:this is a debug message
+INFO:root:module 2 got completed
+WARNING:root:the warning mesaage is displaying
+ERROR:root:the error message is displaying
+CRITICAL:root:the critical message is displaying
