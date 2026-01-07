@@ -11,12 +11,23 @@ from logging import *
 # basicConfig(filename='app.log',level=DEBUG)
 
 # we can also change the mode 
+# we can also change the logger message format
+# by default it is levelname:name(logger name):message
+# by using format argument we can change log formats 
 basicConfig(filename='app.log',
             level=DEBUG,
             filemode='w',
-            format=)
+            format="%(asctime)s:%(name)s:%(levelname)s:%(message)s:%(process)s:%(lineno)s",
+            datefmt='%d-%b-%y %M:%H:%S')
+            # style="{")
+
+# style="{" this is used change the style of format 
+# datefmt='%d-%b-%y %M:%H:%S' this is used to change the format of date and time 
 
 
+# %(process)s this placeholder prints the process id of log
+# we can also get the line number in log by using %(lineno)s
+# eg we want name(loggername):levelname:message
 
 
 # debug()

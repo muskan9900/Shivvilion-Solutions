@@ -90,7 +90,6 @@
 # usd=int(input("enter the usd: "))
 # def conversion(usd,inr=83):
 #     n=usd*inr
-#     total=n
 #     print(usd ," usd value =", n,"inr value ")
 
 # conversion(usd)

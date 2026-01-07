@@ -1,7 +1,7 @@
 """ semaphore """
 """
 # semaphore allow us to use paticular number of threads at once 
-# in lock and Rlock only one thread is allowed to perform at a time
+# in lock and Rlock only one thread is allowed to perform at a time, by default value is 1 of semaphore
 # semaphore can be used to limit the access to the shared resources wih limited capacity
 """
 

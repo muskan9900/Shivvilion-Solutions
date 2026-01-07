@@ -48,7 +48,7 @@ else:
 
 number= int(input(" enter a number: "))
 
-if (number%2==0):
+if (number%7==0):
     print("multiple of seven")
 
 else:
