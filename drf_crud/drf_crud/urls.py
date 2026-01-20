@@ -1,5 +1,5 @@
 """
-URL configuration for project_middleware project.
+URL configuration for drf_crud project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -15,17 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from test_App import views
+from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',views.login_view,name='login'),
-    path('home/',views.home_view, name='home'),
-    path('logout/', views.logout_view, name='logout'),
-    path('signup/', views.signup_view,name='signup'),
-    path('teacher_home/',views.teacher_home, name='teacher_home'),
-    path('student_home/', views.student_home,name='student_home'),
-    path('principal_home/', views.principal_home, name='principal_home'),
-
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/',include('api.urls')),
 ]
+

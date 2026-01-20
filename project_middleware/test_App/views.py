@@ -1,13 +1,13 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomUserCreationForm
+from test_App.forms import CustomUserCreationForm
 from django.contrib.auth import get_user_model
 
 # Create your views here.
 
 User= get_user_model()
-def login_views(request):
+def login_view(request):
     if request.method == 'POST':
         username= request.POST['username']
         password= request.POST['password']
