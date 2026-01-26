@@ -20,5 +20,6 @@ from accounts.views import *
 
 urlpatterns = [
     path('register/',RegisterAPI.as_view()),
+    path('verify/',VerifyOTP.as_view()),
     path('admin/', admin.site.urls),
 ]

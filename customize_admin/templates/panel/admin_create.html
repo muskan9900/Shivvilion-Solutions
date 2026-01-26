@@ -1,0 +1,26 @@
+{% extends "panel/base.html" %}
+{% block title %}Create Sub Admin{% endblock %}
+
+{% block content %}
+  <h1>Create Sub Admin</h1>
+
+  <form method="post" class="form">
+    {% csrf_token %}
+
+    <label>Email</label>
+    {{ form.email }}
+    {% if form.email.errors %}<div class="error">{{ form.email.errors }}</div>{% endif %}
+
+    <label>Password</label>
+    {{ form.password }}
+    {% if form.password.errors %}<div class="error">{{ form.password.errors }}</div>{% endif %}
+
+   {% if request.user.is_super_admin %}
+    <label>Parent Admin</label>
+    {{ form.parent_id }}
+    <small>Pick who this admin should be created under.</small>
+   {% endif %}
+
+    <button type="submit" class="btn">Create</button>
+  </form>
+{% endblock %}

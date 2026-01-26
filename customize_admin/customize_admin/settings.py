@@ -26,6 +26,11 @@ SECRET_KEY = 'django-insecure-+qget7pn_23-3too&8&#z)o^xoks5b-t^^dkiozx-^!iatdbt*
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = "accounts.AdminUser"
+LOGIN_URL = "/panel/login/"
+LOGIN_REDIRECT_URL = "/panel/"
+LOGOUT_REDIRECT_URL = "/panel/login/"
+
 
 
 # Application definition
@@ -37,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'panel',
+    'core',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +63,7 @@ ROOT_URLCONF = 'customize_admin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR /'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,3 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+

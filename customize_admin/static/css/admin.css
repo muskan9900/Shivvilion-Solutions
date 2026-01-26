@@ -1,0 +1,45 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f6f7fb; }
+.layout { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 240px; background: #111827; color: #fff;
+  padding: 18px; display: flex; flex-direction: column;
+}
+
+.brand { margin: 0 0 16px 0; }
+
+.menu a {
+  display: block; padding: 10px 12px; margin-bottom: 6px;
+  color: #fff; text-decoration: none; border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+}
+.menu a:hover { background: rgba(255,255,255,0.12); }
+
+.sidebar-footer { margin-top: auto; }
+.logout { display: inline-block; margin-top: 10px; color: #fff; }
+
+.content { flex: 1; padding: 24px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.card { background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #e6e8f0; }
+
+.table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; }
+.table th, .table td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
+.table th { background: #f1f3f9; }
+
+.btn {
+  display: inline-block; padding: 10px 14px; border-radius: 10px;
+  background: #2563eb; color: #fff; text-decoration: none; border: none;
+}
+
+.form { background: #fff; padding: 16px; border-radius: 12px; max-width: 420px; border: 1px solid #e6e8f0; }
+.form input { width: 100%; padding: 10px; margin: 8px 0 14px; border-radius: 8px; border: 1px solid #ddd; }
+.error { color: #b91c1c; margin-top: -10px; margin-bottom: 10px; }
+
+.messages { margin-bottom: 12px; }
+.message { background: #fff; border-left: 4px solid #2563eb; padding: 10px 12px; border-radius: 10px; margin-bottom: 8px; }
+
+.auth-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.auth-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #e6e8f0; width: 360px; }
+.auth-card input { width: 100%; padding: 10px; margin: 8px 0 14px; border-radius: 8px; border: 1px solid #ddd; }
+.auth-card button { width: 100%; padding: 10px; border-radius: 10px; border: none; background: #2563eb; color: #fff; }

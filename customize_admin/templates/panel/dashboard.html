@@ -1,0 +1,19 @@
+{% extends "panel/base.html" %}
+ {% load perms %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h1>Dashboard</h1>
+  <p>Welcome, {{ request.user.email }}</p>
+
+  <div class="cards">
+   
+    {% if request.user.is_super_admin or request.user|has_perm_code:"admins.view" %}
+      <div class="card">
+        <h3>Admins</h3>
+        <p>Manage sub-admins in your hierarchy.</p>
+        <a href="{% url 'panel_admin_list' %}">Open</a>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

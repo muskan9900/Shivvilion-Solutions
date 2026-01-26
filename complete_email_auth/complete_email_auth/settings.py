@@ -57,7 +57,7 @@ ROOT_URLCONF = 'complete_email_auth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,9 +121,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELDS='django.db.models.BigAutoField'
 
-EMAIL_BACKEND="django.core.mail.backend.setp.EmailBackend"
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_USE_TLS= True
 EMAIL_PORT= 587
-EMAIL_HOST_USER='EMAIL'
-EMAIL_HOST_PASSWORD='PASSWORD'
+EMAIL_HOST_USER='izzamerchant@gmail.com'
+EMAIL_HOST_PASSWORD='nvsiufbbtvlnminj'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
