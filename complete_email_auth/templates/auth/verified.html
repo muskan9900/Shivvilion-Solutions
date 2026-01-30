@@ -1,0 +1,7 @@
+{% extends "auth/base.html" %}
+{% block title %}Verified{% endblock %}
+{% block content %}
+  <h1>Verified </h1>
+  <p>Your email is verified. You can continue.</p>
+  <a class="btn" href="{% url 'register_page' %}" style="display:block;text-align:center;text-decoration:none;">Go Home</a>
+{% endblock %}

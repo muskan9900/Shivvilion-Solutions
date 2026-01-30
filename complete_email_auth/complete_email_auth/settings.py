@@ -128,3 +128,10 @@ EMAIL_PORT= 587
 EMAIL_HOST_USER='izzamerchant@gmail.com'
 EMAIL_HOST_PASSWORD='nvsiufbbtvlnminj'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
+

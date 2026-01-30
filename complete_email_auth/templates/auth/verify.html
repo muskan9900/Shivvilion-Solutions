@@ -1,0 +1,22 @@
+{% extends "auth/base.html" %}
+{% block title %}Verify OTP{% endblock %}
+{% block content %}
+  <h1>Verify OTP</h1>
+  <p>Enter the OTP sent to your email.</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <label>Email</label>
+    {{ form.email }}
+
+    <label>OTP</label>
+    {{ form.otp }}
+
+    <button class="btn" type="submit">Verify</button>
+  </form>
+
+  <div class="links">
+    <a href="{% url 'register_page' %}">Back to Register</a>
+    <a href="{% url 'resend_page' %}">Resend OTP</a>
+  </div>
+{% endblock %}
